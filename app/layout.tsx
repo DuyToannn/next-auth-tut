@@ -20,11 +20,13 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-      <nav>
+      <body className={inter.className}>{children}
+      <nav className="absolute top-0">
         {!!session && <Logout />}
         {!session && <Link href="/login" className="text-white relative top-0">Login</Link>}
       </nav>
+      </body>
+      
     </html>
   );
 }
